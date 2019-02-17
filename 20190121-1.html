@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1" 	>
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<style>
+		.logo{
+			width: 300px;
+			margin-top: 0;
+			margin-bottom: 0;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+	</style>
+	<script>
+		var book_id=0;
+		function get_book_info(mode){
+			$.get("get_book_info.php",{book_id:book_id,mode:mode},function(data){
+				book_id=data.book_id;
+				$("#bookimg").attr("src","Image/"+data.image_name);
+				$("#bookmsg").html(data.description);
+			},"json");
+		}
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div  data-role="header" data-position="fixed" data-theme="a">
+			<h1>行動商品型錄</h1>
+			<!-- <a href="#home" data-role="button" data-icon="home" data-theme="a" >home</a>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a> -->
+		</div>
+		
+		<div role="main" class="ui-content">
+			<div class="logo">
+				<img src="http://fakeimg.pl/250x200/00CED1/FFF/?text=img+placeholder" width="100%">
+			</div>
+			
+			<a href="#interdu" data-role="button" data-theme="a"
+			id="sh" data-icon="arrow-r" data-rel="dialog">快樂出版社簡介</a>
+			<a href="#book" data-role="button" data-theme="a"
+			id="booksh" data-icon="arrow-r">書籍介紹</a>
+			
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-theme="a">
+			<h1>快樂出版社</h1>
+			<!-- <div data-role="navbar">
+				<ul>
+					<li><a href="#">9</a></li>
+					<li><a href="#">9</a></li>
+					<li><a href="#">9</a></li>
+				</ul>
+			</div> -->	
+		</div>
+		
+	</div>
+
+	
+	<!-- 書籍介紹 -->
+	<div data-role="page" id="book" >
+		<div data-role="header" data-theme="b" data-position="fixed">
+			<h1>書籍介紹</h1>
+			<!-- <a href="#home" data-role="button" data-icon="home" data-theme="a" >home</a>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a> -->
+		</div>
+		<div role="main" class="ui-content">
+			<img width="100%" id="bookimg">
+			<p id="bookmsg"></p>
+		</div>
+		<div data-role="footer" data-theme="a" data-position="fixed">
+			
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home">回首頁</a></li>
+					<li><a href="javascript:get_book_info('prev')">上一筆</a></li>
+					<li><a href="javascript:get_book_info('next')">下一筆</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+
+	<!-- 快樂出版社簡介 -->
+	<div data-role="page" id="interdu">
+		<div data-role="header" data-theme="b" data-position="fixed">
+			<h1>快樂出版社簡介</h1>
+			<!-- <a href="#home" data-role="button" data-icon="home" data-theme="a" >home</a>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a> -->
+		</div>
+		<div role="main" class="ui-content">
+			同步遭遇模樣總體機構訓練集中精品翻譯，就會貼子熱門很難樂隊有的全部寵物收集我去適合參觀共和國，可以。
+		</div>
+
+	</div>
+	
+	
+	
+</body>
+</html>
+

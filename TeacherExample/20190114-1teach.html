@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+		$(function(){
+			$("#ok_btn").bind("click", send);
+		});
+		function send(){
+			if(confirm("確定新增資料???")){
+				$.ajax({
+					type: "POST",
+					url: "http://192.168.60.150/mobileWEB/20190114-1.php",
+					data: {img: $("#img").val(), des: $("#des").val()},
+					success: show,
+					error: function(){
+						alert("eroor");
+					}
+				});				
+			} //if end
+
+		}
+
+		function show(data){
+			alert(data);
+		}
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header" data-position="fixed" id="home" data-theme="b">
+			<h1>Home</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<div data-role="fieldcontain">
+				<label for="img">圖片檔名</label>
+				<input type="text" name="img" id="img">
+			</div>
+			<div data-role="fieldcontain">
+				<label for="des">描述</label>
+				<input type="text" name="des" id="des">
+			</div>
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<a href="#" data-role="button" data-theme="b">取消</a>		
+				</div>
+				<div class="ui-block-b">
+					<a href="#" data-role="button" data-theme="b" id="ok_btn">送出</a>		
+				</div>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1>footer</h1>
+		</div>
+	</div>
+</body>
+</html>		

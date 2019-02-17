@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1" 	>
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+	<script>
+		$(function(){
+			$("#name").bind("input propertychange",error);
+			$("#btnOK").bind('click',show);
+		});
+		function show(){
+			var hobb = [];
+			var like = [];
+			$.each($("input[name='checkbox']:checked"),
+				function (){
+					hobb.push($(this).val());
+				});
+			$.each($("input[name='likecheckbox']:checked"),
+				function(){
+					like.push($(this).val());
+				});
+			alert("興趣:"+hobb.join(",")+"\n"+"喜好:"+like.join(",")+"\n"+
+				"飲品:"+$("input[name='drink']:checked").val());
+		}
+
+		
+		function error(){
+			if ($(".ID").val().length<6) {
+				$(".output").text("太少!!");
+				$(".ID").css("background-color","#FAB0B1");
+			}else if ($(".ID").val().length>6) {
+				$(".output").text("");
+				$(".ID").css("background-color","white");
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div  data-role="header" data-position="fixed" data-theme="b">
+			<h1>首頁</h1>
+			<!-- <a href="#home" data-role="button" data-icon="home" data-theme="a" >home</a>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a> -->
+		</div>
+		
+		<div role="main" class="ui-content">
+<!-- 			<div data-role="filecontain">
+				<label for="name">ID</label>
+				<input type="text" name="name" id="name" class="ID">
+			</div>
+			<div class="output"></div> -->
+
+			<div data-role="filecontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>興趣>多選</legend>
+					<input type="checkbox" name="checkbox" id="checkbox1" class="custom" value="單車"/>
+					<label for="checkbox1">單車</label>
+					<input type="checkbox" name="checkbox" id="checkbox2" class="custom" value="游泳"/>
+					<label for="checkbox2">游泳</label>
+					<input type="checkbox" name="checkbox" id="checkbox3" class="custom" value="爬山"/>
+					<label for="checkbox3">爬山</label>
+					<input type="checkbox" name="checkbox" id="checkbox4" class="custom" value="跑步"/>
+					<label for="checkbox4">跑步</label>
+					<input type="checkbox" name="checkbox" id="checkbox5" class="custom" value="健身"/>
+					<label for="checkbox5">健身</label>
+				</fieldset>
+			</div>
+			<div data-role="filecontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>喜好>多選</legend>
+					<input type="checkbox" name="likecheckbox" id="likecheckbox1" class="custom" value="模型"/>
+					<label for="likecheckbox1">模型</label>
+					<input type="checkbox" name="likecheckbox" id="likecheckbox2" class="custom" value="重機"/>
+					<label for="likecheckbox2">重機</label>
+					<input type="checkbox" name="likecheckbox" id="likecheckbox3" class="custom" value="郵票"/>
+					<label for="likecheckbox3">郵票</label>
+					<input type="checkbox" name="likecheckbox" id="likecheckbox4" class="custom" value="3C"/>
+					<label for="likecheckbox4">3C</label>
+					<input type="checkbox" name="likecheckbox" id="likecheckbox5" class="custom" value="單眼"/>
+					<label for="likecheckbox5">單眼</label>
+				</fieldset>
+			</div>
+
+			<div data-role="filecontain">
+				<fieldset data-role="controlgroup" >
+					<legend>飲品>單選</legend>
+					<input type="radio" name="drink" id="radio1" class="custom" value="烏龍茶"/>
+					<label for="radio1">烏龍茶</label>
+					<input type="radio" name="drink" id="radio2" class="custom" value="高山茶"/>
+					<label for="radio2">高山茶</label>
+					<input type="radio" name="drink" id="radio3" class="custom" value="青草茶"/>
+					<label for="radio3">青草茶</label>
+					<input type="radio" name="drink" id="radio4" class="custom" value="冬瓜茶"/>
+					<label for="radio4">冬瓜茶</label>
+					<input type="radio" name="drink" id="radio5" class="custom" value="花茶"/>
+					<label for="radio5">花茶</label>
+				</fieldset>
+			</div>
+			<a href="#" data-role="button" data-theme="b" id="btnOK">確認</a>
+
+							
+			
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1>頁尾</h1>
+			<!-- <div data-role="navbar">
+				<ul>
+					<li><a href="#">9</a></li>
+					<li><a href="#">9</a></li>
+					<li><a href="#">9</a></li>
+				</ul>
+			</div> -->	
+		</div>
+		
+	</div>
+	
+</body>
+</html>
+

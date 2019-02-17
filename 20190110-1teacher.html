@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+		$(function(){
+			$.ajax({
+				type: "GET",
+				url: "http://192.168.60.150/mobileWEB/select_db.php",
+				dataType: "json",
+				success: show,
+				error: function(){
+					alert("資料錯誤!");
+				}
+			});
+		});
+		function show(data){
+			for(i=0; i<5; i++){
+			// $("#msg").append(data[i].book_id+data[i].image_name+data[i].description+"<BR>");
+			 
+			$("#msg").append('<img src="images/'+data[i].image_name+'" width="49%" alt="">');
+			}
+		}
+	</script>
+
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header" data-position="fixed" id="home" data-theme="b">
+			<h1>Home</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<div id="msg"></div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1>footer</h1>
+		</div>
+	</div>
+</body>
+</html>		

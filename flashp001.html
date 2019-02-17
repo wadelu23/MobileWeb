@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1" 	>
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<style>
+		.ui-grid-b div div{
+			background-color: #000000;
+			border-radius: 300px;
+		}
+		.led01{
+			width: 100%;
+			height: 30vw;
+			margin-right: auto;
+			margin-left: auto;
+			border-radius: 100%;
+			background-color: #F10909;	
+		}
+		.led02{
+			width: 100%;
+			height: 30vw;
+			margin-right: auto;
+			margin-left: auto;
+			border-radius: 100%;
+			background-color: #F3EC10;
+		}
+		.led03{
+			width: 100%;
+			height: 30vw;
+			margin-right: auto;
+			margin-left: auto;
+			border-radius: 100%;
+			background-color: #49F115;
+		}
+	</style>
+
+	<script>
+		$(function () {
+			var i=1;
+			setInterval(flash,1000);
+			function flash(){
+				if (i==1) {
+					$("#led01").css("background-color","#F61919");
+					$("#led02").css("background-color","#000000");
+					$("#led03").css("background-color","#000000");
+					i++;
+				}else if (i==2) {
+					$("#led01").css("background-color","#000000");
+					$("#led02").css("background-color","#F3EC10");
+					$("#led03").css("background-color","#000000");
+					i++;
+				}else {
+					$("#led01").css("background-color","#000000");
+					$("#led02").css("background-color","#000000");
+					$("#led03").css("background-color","#49F115");
+					i=1;
+				}
+			}
+		});
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div  data-role="header" data-position="fixed" data-theme="b">
+			<h1>首頁</h1>
+			<!-- <a href="#home" data-role="button" data-icon="home" data-theme="a" >home</a>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a> -->
+		</div>
+		
+		<div role="main" class="ui-content">
+			<div class="ui-grid-b">
+				<div class="ui-block-a">
+					<div class="led01" id="led01"></div>
+				</div>
+				<div class="ui-block-b">
+					<div class="led02" id="led02"></div>
+				</div>
+				<div class="ui-block-c">
+					<div class="led03" id="led03"></div>
+				</div>
+			</div>
+
+			
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1>頁尾</h1>
+			<!-- <div data-role="navbar">
+				<ul>
+					<li><a href="#">9</a></li>
+					<li><a href="#">9</a></li>
+					<li><a href="#">9</a></li>
+				</ul>
+			</div> -->	
+		</div>
+		
+	</div>
+	
+</body>
+</html>
+

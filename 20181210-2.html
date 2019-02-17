@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1" 	>
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">	
+	<link rel="stylesheet" href="css/listview-grid.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+	<div data-role="page" id="home" data-theme="b" class="my-page">
+		<div  data-role="header" data-position="fixed" data-theme="b">
+			<h1>首頁</h1>
+			<!-- <a href="#home" data-role="button" data-icon="home" data-theme="a" >home</a>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a> -->
+		</div>
+		
+		<div role="main" class="ui-content">
+			<ul data-role="listview" data-inset="true">
+				<li>
+					<a href="#" >
+						<img src="Image/p00 (1).jpg" alt="" class="ui-li-thumb">
+						<h2>title</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, qui. </p>
+						<p class="ui-li-aside">BMW</p>
+					</a>
+				</li>
+				<li>
+					<a href="#" >
+						<img src="Image/p00 (1).jpg" alt="" class="ui-li-thumb">
+						<h2>title</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque rem nisi co</p>
+						<p class="ui-li-aside">BMW</p>
+					</a>
+				</li>
+				<li>
+					<a href="#" >
+						<img src="Image/p00 (1).jpg" alt="" class="ui-li-thumb">
+						<h2>title</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus sa</p>
+						<p class="ui-li-aside">BMW</p>
+					</a>
+				</li>
+				<li>
+					<a href="#" >
+						<img src="Image/p00 (1).jpg" alt="" class="ui-li-thumb">
+						<h2>title</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum debitis</p>
+						<p class="ui-li-aside">BMW</p>
+					</a>
+				</li>
+				
+			</ul>
+			
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#">最</a></li>
+					<li><a href="#">新</a></li>
+					<li><a href="#">產</a></li>
+					<li><a href="#">品</a></li>
+					<li><a href="#new">最新產品</a></li>
+				</ul>
+			</div>
+				
+		</div>
+		
+	</div>
+
+	<div data-role="page" id="new" data-theme="b" class="my-page">
+		<div data-role="header" data-theme="b" data-position="fixed">
+			<h1>首頁</h1>
+			<a href="#home" data-role="button" data-icon="home" data-theme="a" >home</a>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a>
+		</div>
+
+
+		<div role="main" class="ui-content" >
+			<ul data-role="listview" data-inset="true">
+				<li><a href="#pop01" data-rel="popup" data-position-to="window">
+						<img src="Image/p00 (3).jpg"  alt="" class="ui-li-thumb"> 
+						<!-- <img src="http://fakeimg.pl/350x200/00CED1/FFF/?text=img+placeholder" class="ui-li-thumb"> -->
+						<h2>Title</h2>
+						<p>ctetur adipisicing elit. Blanditiis, voluptate!</p>
+						<p class="ui-li-aside">ABC</p>
+					</a>
+					<div data-role="popup" id="pop01" data-dismissible="false">
+						<a href="#" data-role="button" data-theme="a"
+							data-icon="delete" data-iconpos="notext"
+							data-rel="back" class="ui-btn-right"></a>
+							<img src="Image/p00 (3).jpg" alt="">
+							<div data-role="collapsible-set">
+								<div data-role="collapsible">
+									<h3>特色</h3>
+									<p>簡單其他的不過風情驚人夏天人體最高眼光增強商城法規社會主，。</p>
+								</div>
+								<div data-role="collapsible">
+									<h3>得獎</h3>
+									<p>寫真男女高中誠信正在投資圖書館版面財務夥伴積極更新成為，政。</p>
+								</div>
+								<div data-role="collapsible">
+									<h3>基改</h3>
+									<p>各國頓時是誰等人一種費用，顯卡聯盟本文可以沒有注意走到都，。</p>
+								</div>
+							</div>
+						
+					</div>
+				</li>
+				<li><a href="#pop02" data-rel="popup" data-position-to="window">
+						<img src="Image/p00 (1).jpg" alt="" class="ui-li-thumb">
+						<h2>Title</h2>
+						<p>ctetur adipisicing elit. Illum, eveniet.</p>
+						<p class="ui-li-aside">ABC</p>
+					</a>
+					<div data-role="popup" id="pop02" data-dismissible="false">
+						<a href="#" data-role="button" data-theme="a"
+							data-icon="delete" data-iconpos="notext"
+							data-rel="back" class="ui-btn-right"></a>
+							<img src="Image/p00 (1).jpg" alt="">
+							<div data-role="collapsible-set">
+								<div data-role="collapsible">
+									<h3>特色</h3>
+									<p>簡單其他的不過風情驚人夏天人體最高眼光增強商城法規社會主，。</p>
+								</div>
+								<div data-role="collapsible">
+									<h3>得獎</h3>
+									<p>寫真男女高中誠信正在投資圖書館版面財務夥伴積極更新成為，政。</p>
+								</div>
+								<div data-role="collapsible">
+									<h3>基改</h3>
+									<p>各國頓時是誰等人一種費用，顯卡聯盟本文可以沒有注意走到都，。</p>
+								</div>
+							</div>
+						
+					</div>
+				</li>
+				<li><a href="#pop03" data-rel="popup" data-position-to="window">
+						<img src="Image/p00 (2).jpg" alt="" class="ui-li-thumb">
+						<h2>Title</h2>
+						<p>ctetur adipisicing elit. Neque, quos.</p>
+						<p class="ui-li-aside">ABC</p>
+					</a>
+					<div data-role="popup" id="pop03" data-dismissible="false">
+						<a href="#" data-role="button" data-theme="a"
+							data-icon="delete" data-iconpos="notext"
+							data-rel="back" class="ui-btn-right"></a>
+							<img src="Image/p00 (2).jpg" alt="">
+							<div data-role="collapsible-set">
+								<div data-role="collapsible">
+									<h3>特色</h3>
+									<p>簡單其他的不過風情驚人夏天人體最高眼光增強商城法規社會主，。</p>
+								</div>
+								<div data-role="collapsible">
+									<h3>得獎</h3>
+									<p>寫真男女高中誠信正在投資圖書館版面財務夥伴積極更新成為，政。</p>
+								</div>
+								<div data-role="collapsible">
+									<h3>基改</h3>
+									<p>各國頓時是誰等人一種費用，顯卡聯盟本文可以沒有注意走到都，。</p>
+								</div>
+							</div>
+						
+					</div>
+				</li>
+				<li><a href="#pop04" data-rel="popup" data-position-to="window">
+						<img src="Image/p00 (4).jpg" alt="" class="ui-li-thumb">
+						<h2>Title</h2>
+						<p>ctetur adipisicing elit. Rem, aut.</p>
+						<p class="ui-li-aside">ABC</p>
+					</a>
+					<div data-role="popup" id="pop04" data-dismissible="false">
+						<a href="#" data-role="button" data-theme="a"
+							data-icon="delete" data-iconpos="notext"
+							data-rel="back" class="ui-btn-right"></a>
+							<img src="Image/p00 (4).jpg" alt="">
+							<div data-role="collapsible-set">
+								<div data-role="collapsible">
+									<h3>特色</h3>
+									<p>簡單其他的不過風情驚人夏天人體最高眼光增強商城法規社會主，。</p>
+								</div>
+								<div data-role="collapsible">
+									<h3>得獎</h3>
+									<p>寫真男女高中誠信正在投資圖書館版面財務夥伴積極更新成為，政。</p>
+								</div>
+								<div data-role="collapsible">
+									<h3>基改</h3>
+									<p>各國頓時是誰等人一種費用，顯卡聯盟本文可以沒有注意走到都，。</p>
+								</div>
+							</div>
+						
+					</div>
+				</li>
+			</ul>
+		</div>
+
+
+		<div data-role="footer" data-theme="b" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#">最</a></li>
+					<li><a href="#">新</a></li>
+					<li><a href="#">產</a></li>
+					<li><a href="#">品</a></li>
+					<li><a href="#new">最新產品</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	
+</body>
+</html>
+

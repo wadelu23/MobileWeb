@@ -1,0 +1,37 @@
+
+	.logo{
+		width: 300px;
+		margin-top: 0;
+		margin-bottom: 0;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.homelogo{
+		box-shadow: 4px 4px 25px 5px #F73333;
+		border-radius: 150px;
+	}
+	.pimg{
+		width: 250px;
+		margin-top: 0;
+		margin-bottom: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.pimg_01{
+		box-shadow: -4px 4px 25px 5px #5A6AEC;
+		border-radius: 80px;
+	}
+	
+	.ptext h3{
+		color: #F5384A;
+	}
+	h2{
+		color: #1B35EB;
+	}
+	.ptext p{
+		color: #0BFA49;
+	}
+	.H1{
+		text-align: center;
+		color: #137BFA;
+	}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=divice-width,initial-scale=1" >
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<style>
+		.ui-icon-p01:after{
+			background-image: url(Image/icon/icon01.ico);
+		}
+		.ui-icon-p02:after{
+			background-image: url(Image/icon/icon02.ico);
+		}
+		.ui-icon-p03:after{
+			background-image: url(Image/icon/icon03.ico);
+		}
+	</style>
+</head>
+<body>
+	<div data-role="page" id ="home">
+		<div data-role="header" data-theme="b">
+			<h1>首頁</h1>
+		</div>
+		
+		<div role="main" class="ui-content">
+			<img src="Image/logo.png" width="100%" alt="">
+			<a href="#hi" data-rel="dialog" data-role="button" data-icon="lock">Hi</a>
+			<img src="http://fakeimg.pl/650x300/00CED1/FFF/?text=HOME" width="100%">
+		</div>
+
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<div data-role="navbar" data-iconpos="left">
+				<ul>
+					<li><a href="#p01" data-transition="turn" data-icon="p01">p01</a></li>
+					<li><a href="#p02" data-transition="slidefade"data-icon="p02">p02</a></li>
+					<li><a href="#p03" data-transition="slidedown"data-icon="p03">p03</a></li>
+					<li><a href="#p04" data-transition="flow">p04</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id ="p01">
+		<div data-role="header" data-theme="b">
+			<a href="#home" data-role="button"data-icon="home" data-theme="a" >home</a>
+			<h1>p01</h1>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a>
+		</div>
+		
+		<div role="main" class="ui-content">
+			<a href="#pop" data-rel="popup" data-position-to="window">
+				<img src="Image/p00 (6).jpg" width="48%" alt="">
+			</a>
+			<div data-role="popup" id="pop" data-dismissible="false">
+				<a href="#" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext"
+				   class="ui-btn-right" data-rel="back"></a>
+				<img src="Image/p00 (6).jpg" alt="">
+				<p>品名:玉米</p>
+				<p>產地:台灣</p>
+				<p>等級:中上</p>
+				<p>選項正確後果課程男人營銷上面大力群眾，當天戀愛本帖鼓勵保證最，影音和我而已住了意見大家都基金日本，。</p>
+			</div>
+		</div>
+
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<div data-role="navbar" data-iconpos="left">
+				<ul>
+					<li><a href="#p01" class="ui-btn-active" data-transition="turn">p01</a></li>
+					<li><a href="#p02" data-transition="slidefade">p02</a></li>
+					<li><a href="#p03" data-transition="slidedown">p03</a></li>
+					<li><a href="#p04" data-transition="flow">p04</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id ="p02">
+		<div data-role="header" data-theme="b" data-position="fixed" data-fullscreen="true">
+			<a href="#home" data-role="button"data-icon="home" data-theme="a" >home</a>
+			<h1>p02</h1>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a>
+		</div>
+		
+		<div role="main" class="ui-content">
+			<img src="http://fakeimg.pl/650x400/00CED1/FFF/?text=Full" width="100%">
+			<img src="http://fakeimg.pl/650x400/00CED1/FFF/?text=screen" width="100%">
+		</div>
+
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<div data-role="navbar" data-iconpos="left">
+				<ul>
+					<li><a href="#p01" data-transition="turn">p01</a></li>
+					<li><a href="#p02" class="ui-btn-active" data-transition="slidefade">p02</a></li>
+					<li><a href="#p03" data-transition="slidedown">p03</a></li>
+					<li><a href="#p04" data-transition="flow">p04</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id ="p03">
+		<div data-role="header" data-theme="b">
+			<a href="#home" data-role="button"data-icon="home" data-theme="a" >home</a>
+			<h1>p03</h1>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a>
+		</div>
+		
+		<div role="main" class="ui-content">
+			p03
+		</div>
+
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<div data-role="navbar" data-iconpos="left">
+				<ul>
+					<li><a href="#p01" data-transition="turn">p01</a></li>
+					<li><a href="#p02" data-transition="slidefade">p02</a></li>
+					<li><a href="#p03" class="ui-btn-active" data-transition="slidedown">p03</a></li>
+					<li><a href="#p04" data-transition="flow">p04</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id ="p04">
+		<div data-role="header" data-theme="b">
+			<a href="#home" data-role="button"data-icon="home" data-theme="a" >home</a>
+			<h1>p04</h1>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a>
+		</div>
+		
+		<div role="main" class="ui-content">
+			p04
+		</div>
+
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<div data-role="navbar" data-iconpos="left">
+				<ul>
+					<li><a href="#p01" data-transition="turn">p01</a></li>
+					<li><a href="#p02" data-transition="slidefade">p02</a></li>
+					<li><a href="#p03" data-transition="slidedown">p03</a></li>
+					<li><a href="#p04" class="ui-btn-active" data-transition="flow">p04</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="hi">
+		<div data-role="header">
+			<h2>你好</h2>
+		</div>
+		<div role="main" class="ui-content">
+			<p>哈囉!第一次見面</p>
+		</div>
+	</div>
+	
+</body>
+</html>

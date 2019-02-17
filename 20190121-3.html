@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1" 	>
+	<title>Document</title>
+	<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSnyMTQAIeclcmF-1y1ufEj3mzZb6sPx4" type="text/javascript"></script>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<style>
+		#maprange{
+			width: 90vw;
+			height: 80vh;
+			margin-top: 0;
+			margin-bottom: 0;
+			margin-left: auto;
+			margin-right: auto;
+			border-radius: 5px;
+			box-shadow: 2px 2px 2px 6px #3092CE;
+		}
+		#popimg{
+			width: 60px;
+			margin-top: 0;
+			margin-bottom: 0;
+			margin-left: auto;
+			margin-right: auto;
+			border-radius: 20px;
+			box-shadow: 0.5px 0.5px 0.5px 3px #E2511C;
+		}
+		#h4ti{
+			text-align: center;
+			color: #C64838;
+		}
+	</style>
+	<script language="javascript">
+		//定義顯示mappage頁面時執行GetMap()載入地圖和地標
+		$(function(){
+			$("#map").bind("pageshow",GetMap);//載入地圖和地標
+		});
+		var curGeoPoint={lat:24.170566,lng:120.609932};
+		function GetGeo(lat,lng){
+			//取得目前定位
+			curGeoPoint.lat=lat;
+			curGeoPoint.lng=lng;
+			// mappage 的 pageshow 會呼叫 GetMap() 顯示地圖
+			$.mobile.changePage("#map", "slide", false, true);
+			//GetMap(); // 也可以在此直接呼叫 GetMap() 顯示地圖
+			e.preventDefault(); // 避免重複觸發						
+		}
+		function GetMap(){
+				//設定地圖的中心點
+				var map_div=document.getElementById("maprange");
+				//取得目前定位點
+				var latlng=new google.maps.LatLng(curGeoPoint.lat,curGeoPoint.lng);
+
+				var gmap=new google.maps.Map(map_div,{
+					zoom:15,
+					center:latlng,
+					mapTypeId:google.maps.MapTypeId.ROADMAP
+				});
+				//建立地標
+				var marker=new google.maps.Marker({
+					position:latlng,
+					icon:"Image/house1.png",
+					map:gmap,
+					title:"House"
+				});
+				//碰觸地標
+				google.maps.event.addListener(marker,"click",
+					function(event){
+						var infowindow = new google.maps.InfoWindow({
+							content:'<div id="popimg"><img src="Image/house.png"  width="100%" ></div><h4 id="h4ti">標題</h4>	<p>外精華你就靈魂亞洲當前位，那天你們的歐洲疾病屏幕外面這場帝國時期一部默認眼睛這是在這。</p>'
+						});
+						infowindow.open(gmap,marker);
+				});
+		}//END GetMap
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div  data-role="header" data-position="fixed" data-theme="b">
+			
+			<!-- <a href="#home" data-role="button" data-icon="home" data-theme="a" >home</a>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a> -->
+		</div>
+		
+		<div role="main" class="ui-content">
+			<ul data-role="listview" data-inset="true" >
+					<li data-role="list-divider">想看哪裡?</li>
+    				<li><a href="javascript:GetGeo(24.170566,120.609932)">CVTV</a></li>
+     				<li><a href="javascript:GetGeo(25.033773,121.564787)">Taipei 101</a></li>
+   					<li><a href="javascript:GetGeo(25.102398,121.548613)">National Palace Museum</a></li>
+   					<li><a href="javascript:GetGeo(23.84932,120.929622)">Sun Moon Lake</a></li>
+   					<li><a href="javascript:GetGeo(21.949812,120.779816)">Kenting National Park</a></li>
+     		</ul>
+    
+			
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" >HOME</a></li>
+					<li><a href="#map" data-icon="gear" >MAP</a></li>
+				</ul>
+			</div>	
+		</div>
+		
+	</div>
+
+	<div data-role="page" id="map">
+		<div  data-role="header" data-position="fixed" data-theme="b">
+			<h1>地圖</h1>
+			<!-- <a href="#home" data-role="button" data-icon="home" data-theme="a" >home</a>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a> -->
+		</div>
+		
+		<div role="main" class="ui-content">
+			<div id="maprange"></div>
+			
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" >HOME</a></li>
+					<li><a href="#map" data-icon="gear" >MAP</a></li>
+				</ul>
+			</div>	
+		</div>
+		
+	</div>
+	
+</body>
+</html>
+

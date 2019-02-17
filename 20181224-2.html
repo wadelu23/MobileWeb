@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1" 	>
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<style>
+		.output{
+			text-shadow: 0 0 0;
+			font-family: courier;
+		}
+	</style>
+	<script>
+		$(function(){
+			$("#cal").bind('click',cal);
+			$("#cancel").bind('click',cancel);
+			$("#age").bind('input propertychange',ageinput)
+		});
+
+		function cal(){
+			//var name,age,weight,height,bmi;
+			name = $("#name").val()+"，你好"; //姓名+問候
+			age = "年齡是:"+$("#age").val();//年齡輸出
+			weight = $("#weight").val();//體重
+			height = $("#height").val()/100;//身高，單位轉換成公尺
+			bmi = (weight/(height*height)).toFixed(1);//取小數第1位
+			//alert(bmi);
+
+			if (bmi<18) {
+				$("#output").text(name+"\n"+age+"\n"+"BMI:"+bmi+"\n"+"結果:過輕");
+				$("#output").css("background-color","#9ABBF8")
+			}else if (bmi>30) {
+				$("#output").text(name+"\n"+age+"\n"+"BMI:"+bmi+"\n"+"結果:過重");
+				$("#output").css("background-color","#F45858")
+			}else if (bmi>18&&bmi<30) {
+				$("#output").text(name+"\n"+age+"\n"+"BMI:"+bmi+"\n"+"結果:正常");
+				$("#output").css("background-color","#6BF975")				
+			}
+		}
+
+		function ageinput(){
+				if ($("#age").val().length>3) {
+					$("#ageinput").text("不可能!!");
+					$("#ageinput").css("color","#FB082D");
+				}else{
+					$("#ageinput").text("");					
+				}
+		}
+
+		function cancel(){
+			$("#age").val("");
+			$("#name").val("");
+			$("#height").val("");
+			$("#weight").val("");
+			$("#output").text("");			
+		}
+
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div  data-role="header" data-position="fixed" data-theme="b">
+			<h1>首頁</h1>
+			<!-- <a href="#home" data-role="button" data-icon="home" data-theme="a" >home</a>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a> -->
+		</div>
+		
+		
+		<div role="main" class="ui-content">
+			<div data-role="filecontain">
+				<label for="name">姓名</label>
+				<input type="text" name="name" id="name">
+			</div>
+
+			<div data-role="filecontain">
+				<label for="age">年齡</label>
+				<input type="text" name="age" id="age">
+			</div>
+			<div id="ageinput"></div>
+<!-- 			<div data-role="filecontain">
+				<label for="height">身高(cm)</label>
+				<input type="text" name="height" id="height">
+			</div>
+
+			<div data-role="filecontain">
+				<label for="weight">體重</label>
+				<input type="text" name="weight" id="weight">
+			</div> -->
+			<div data-role="filecontain">
+				<label for="height">身高(CM)</label>
+				<input type="range" name="height" id="height" value="100" min="80" max="200" step="1">
+			</div>
+			<div data-role="filecontain">
+				<label for="weight">體重(KG)</label>
+				<input type="range" name="weight" id="weight" value="60" min="40" max="120" step="1">
+			</div>
+			
+			<div id="output" class="output"></div>
+
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<a href="#" data-role="button" data-theme="b" id="cancel">取消</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="#" data-role="button" data-theme="b" id="cal">計算</a>
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1>頁尾</h1>
+			<!-- <div data-role="navbar">
+				<ul>
+					<li><a href="#">9</a></li>
+					<li><a href="#">9</a></li>
+					<li><a href="#">9</a></li>
+				</ul>
+			</div> -->	
+		</div>
+		
+	</div>
+	
+</body>
+</html>
+

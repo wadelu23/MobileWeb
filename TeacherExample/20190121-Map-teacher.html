@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	  <script  defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkvhyiqbeCHc3xHqlUjsYL5yJINdD3myo&callback=initMap"
+  type="text/javascript"></script>
+  <style>
+  	#map_div{
+		margin: 0 auto;
+		width: 280px;
+		height: 440px;
+		border: 5px solid #FFF;
+		border-radius: 5px;
+		box-shadow: 2px 2px 2px 6px #666;  		
+  	}
+  	.info{
+  		color: #fa0;
+  	}
+  </style>
+	<script>
+/*		$(function(){
+			var map_div=document.getElementById("map_div");
+			var lat=24.170566;
+			var lng=120.609932;
+			var latlng = new google.maps.LatLng(lat,lng);
+			var gmap= new google.maps.Map(map_div,{
+				zoom: 14,
+				center: latlng,
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				 zoom:14,
+				 });
+		});
+*/
+		function initMap(){
+			var map_div=document.getElementById("map_div");
+			var lat=24.170566;
+			var lng=120.609932;
+			var latlng = new google.maps.LatLng(lat,lng);
+			var gmap= new google.maps.Map(map_div,{
+				zoom: 14,
+				center: latlng,
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				 zoom:14,
+				 });
+
+			var marker = new google.maps.Marker({
+				position: latlng,
+				icon: "https://randomuser.me/api/portraits/thumb/men/68.jpg",
+				map: gmap,
+				title: "hello"
+			});
+
+			google.maps.event.addListener(marker, "click", function(event){
+				var infowindow = new google.maps.InfoWindow({
+					content: '<div class="info"><img src="https://images.unsplash.com/photo-1527153907022-465ee4752fdc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" width="100%" alt=""><p>通知相關即使咱們合適</p><p>tel: 23653621</p></div>'
+				});
+				infowindow.open(gmap, marker);
+			})
+		}
+
+
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header" data-position="fixed" id="home" data-theme="b">
+			<h1>Home</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<div id="map_div"></div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1>footer</h1>
+		</div>
+	</div>
+</body>
+</html>		
+

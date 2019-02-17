@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1" 	>
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+		$(function(){
+			$("#name").bind('input propertychange',nameinput);
+			$("#OK").bind('click',output);
+		});
+		var nameflag=false;
+		function nameinput(){
+			if ($("#name").val().length<3) {
+				$("#msg_name").text("太少");
+				nameflag=false;
+			}else if ($("#name").val().length>3) {
+				$("#msg_name").text("");
+				nameflag=true;
+			}
+		}
+		function output(){
+			if (nameflag) {
+				a='<p>姓名:'+$("#name").val()+'</p>';
+				a+='<p>單選:'+$("input[name='radio']:checked").val()+'</p>';
+				var out=[];
+				$.each($("input[name=checkbox]:checked"),
+					function (){
+						out.push($(this).val());
+					});
+				a+='<p>姓名:'+out.join("-")+'</p>';
+				$("#result").html(a);
+			}else{
+				$("#result").html("");
+			}
+		}
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div  data-role="header" data-position="fixed" data-theme="b">
+			<h1>首頁</h1>
+			<!-- <a href="#home" data-role="button" data-icon="home" data-theme="a" >home</a>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a> -->
+		</div>
+		
+		<div role="main" class="ui-content">
+			<div data-role="filecontain">
+				<label for="name">姓名</label>
+				<input type="text" name="name" id="name">
+			</div>
+			<div id="msg_name"></div>
+
+
+			<div data-role="filecontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>單選</legend>
+					<input type="radio" name="radio" id="radio1" class="custom" value="選項1"/>
+					<label for="radio1">選項1</label>
+					<input type="radio" name="radio" id="radio2" class="custom" value="選項2"/>
+					<label for="radio2">選項2</label>
+					<input type="radio" name="radio" id="radio3" class="custom" value="選項3"/>
+					<label for="radio3">選項3</label>
+					<input type="radio" name="radio" id="radio4" class="custom" value="選項4"/>
+					<label for="radio4">選項4</label>
+					<input type="radio" name="radio" id="radio5" class="custom" value="選項5"/>
+					<label for="radio5">選項5</label>
+				</fieldset>
+			</div>
+
+			<div data-role="filecontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>多選</legend>
+					<input type="checkbox" name="checkbox" id="checkbox1" class="custom" value="選項1"/>
+					<label for="checkbox1">選項1</label>
+					<input type="checkbox" name="checkbox" id="checkbox2" class="custom" value="選項2"/>
+					<label for="checkbox2">選項2</label>
+					<input type="checkbox" name="checkbox" id="checkbox3" class="custom" value="選項3"/>
+					<label for="checkbox3">選項3</label>
+					<input type="checkbox" name="checkbox" id="checkbox4" class="custom" value="選項4"/>
+					<label for="checkbox4">選項4</label>
+					<input type="checkbox" name="checkbox" id="checkbox5" class="custom" value="選項5"/>
+					<label for="checkbox5">選項5</label>
+				</fieldset>
+			</div>
+
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<a href="#" data-role="button" data-theme="b" id="OK">確認</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="#" data-role="button" data-theme="b" id="CA">取消</a>
+				</div>
+			</div>
+
+			<div id="result"></div>
+			
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1>頁尾</h1>
+			<!-- <div data-role="navbar">
+				<ul>
+					<li><a href="#">9</a></li>
+					<li><a href="#">9</a></li>
+					<li><a href="#">9</a></li>
+				</ul>
+			</div> -->	
+		</div>
+		
+	</div>
+	
+</body>
+</html>
+

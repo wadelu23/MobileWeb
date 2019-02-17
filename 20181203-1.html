@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=divice-width,initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<style>/*icon設置icon01是自定義名稱,類似ID*/
+		.ui-icon-icon01:after{
+			background-image: url(Image/icon/icon01.ico); 
+		}
+		.ui-icon-icon02:after{
+			background-image: url(Image/icon/icon02.ico);
+		}
+		.ui-icon-icon03:after{
+			background-image: url(Image/icon/icon03.ico);
+		}
+	</style>
+	<!-- <script>
+		$(document).ready(function(){
+			setInterval(function(){
+				alert("Lorem ipsum dolor sit amet, consectetur adipisicing.")
+			},2000)
+		});
+	</script> -->
+
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header"  data-theme="b">
+			<h1><img src="Image/logo.png" width="300px" alt=""></h1>
+			<div data-role="navbar" data-grid="c" data-iconpos="left">
+				<!-- data-grid="",a=2,b=3,c=4,... --><!-- data-iconpos="left"top,bottom,right -->
+				<ul>
+					<li><a href="#" data-icon="action" class="ui-btn-active">日</a></li>
+					<!-- class="ui-btn-active"是Button都可用,亮起引導使用者按 -->
+					<li><a href="#" data-icon="icon01">月</a></li>
+					<li><a href="#" data-icon="icon02">金</a></li>
+					<li><a href="#" data-icon="icon03">木</a></li>
+					<li><a href="#" data-icon="cloud">水</a></li>
+					<li><a href="#" data-icon="check">火</a></li>
+					<li><a href="#" data-icon="delete">土</a></li>
+					<li><a href="#" data-icon="gear">風</a></li>
+					<li><a href="#" data-icon="home">水</a></li>
+				</ul>
+			</div>
+			
+		</div>
+		
+		<div role="main" class="ui-content">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#">選單1</a></li>
+					<li><a href="#">選單2</a></li>
+					<li><a href="#">選單3</a></li>
+				</ul>
+			</div>
+			<a href="#p01" data-rel="popup" data-position-to="window">
+				<img src="Image/p00 (1).jpg" width="48%" alt="">
+			</a>
+			<div data-role="popup" id="p01" data-dismissible="false">
+				<a href="#" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right" data-rel="back">
+				</a>
+				<img src="Image/p00 (1).jpg"  width="100%" alt="">
+			</div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat obcaecati et repellat dignissimos ipsa voluptas harum, quae labore modi alias voluptatibus accusantium adipisci sunt, debitis ducimus nulla officia voluptates. Nemo.</p>
+		</div>
+
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<!-- <div data-role="button" class="ui-bar">
+					<a href="#">Btn1</a>
+					<a href="#">Btn2</a>
+					<a href="#">Btn3</a>
+					<a href="#">Btn4</a>
+			</div> -->
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#">選單一</a></li>
+					<li><a href="#">選單二</a></li>
+					<li><a href="#">選單三</a></li>
+				</ul>
+			</div>
+		</div>
+
+
+
+	</div>
+	
+</body>
+</html>

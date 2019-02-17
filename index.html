@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" 
+		  content="width=divice-width,initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+	<div data-role="page" id="home">
+
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h5>頁首</h5>
+		</div>
+
+		<div role="main" class="ui-content">
+			<!-- <p>data-role="page" id="home"</p>
+			<p>data-role="header" data-position="fixed"</p>
+			<p>role="main" class="ui-content"</p>
+			<p>data-role="footer" data-position="fixed"</p> -->
+			<a href="#news" data-role="button">最新消息</a>
+			<table>
+				<tr>
+					<td><a href="#news"><img src="http://fakeimg.pl/1440x600/00CED1/FFF/?text=NEWS" width="100%"></a></td>
+					<td><a href="#menu"><img src="http://fakeimg.pl/1440x600/ff0000/FFF/?text=menu" width="100%"></a></td>
+				</tr>
+			</table>
+			<a href="#menu" data-transition="flip" data-role="button">menu</a>
+			<a href="#news" data-transition="fade" data-role="button">fade</a>
+			<a href="#news" data-transition="pop" data-role="button">pop</a>
+			<a href="#news" data-transition="flip" data-role="button">flip</a>
+			<a href="#news" data-transition="turn" data-role="button">turn</a>
+			<a href="#news" data-transition="flow" data-role="button">flow</a>
+			<a href="#news" data-transition="slidefade" data-role="button">slidefade</a>
+			<a href="#news" data-transition="slide" data-role="button">slide</a>
+			<a href="#news" data-transition="slideup" data-role="button">slideup</a>
+			<a href="#news" data-transition="slidedown" data-role="button">slidedown</a>
+			<a href="#news" data-transition="none" data-role="button">none</a>
+			<a href="#about" data-rel="dialog" data-role="button">Dialog</a>
+			<a href="#popup" data-rel="popup" data-role="button" >PopUP</a>
+			<div data-role="popup" id="popup">
+				<h1>彈出</h1>
+			</div>
+		</div>
+
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h5>FOOTER</h5>
+		</div>
+
+	</div>
+	<!-- 最新消息 -->
+	<div data-role="page" id="news">
+		<div data-role="header" data-position="fixed" >
+			<a href="#" data-theme="b" data-rel="back">Back</a>
+			<h5>最新消息</h5>
+		</div>
+		<div role="main" class="ui-content">
+			<a href="tel:+886988318209" data-role="button" data-theme="b">撥打電話</a>
+			<img src="http://fakeimg.pl/750x400/4169e1/FFF/?text=img+news" width="100%">
+			<p>版權所有財務國際成人總是基層冠軍是有引發喜愛物質回，上傳城市求助未經逐步定，只要西安都有用戶研究生分別鈴聲，如下消除有點一批當前位置複雜城市職責人類有一對你一，對著計算機考慮相比都要那些早已地說補。</p>
+			<a href="#news01" ><img src="http://fakeimg.pl/150x100/00CED1/FFF/?text=newsDay01" ></a>
+
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h5>頁尾</h5>
+		</div>
+	</div>
+	<!-- 最新消息第1天 -->
+	<div data-role="page" id="news01" data-theme="b">
+		<div data-role="header" data-theme="a" data-position="fixed" data-fullscreen="true">
+			<a href="#" data-theme="b" data-rel="back">Back</a>
+			<h5>最新消息第1天</h5>
+		</div>
+		<div role="main" class="ui-content">
+			<img src="http://fakeimg.pl/750x400/00CED1/FFF/?text=news01" width="100%">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic recusandae nisi aliquid nesciunt quia, nihil! Sit perspiciatis illo blanditiis eligendi.
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="a" >
+			<h5>尾</h5>
+		</div>
+
+	</div>
+
+	<div data-role="page" id="about">
+		<div data-role="header">
+			<h5>123</h5>
+		</div>
+		<div role="main" class="ui-content">
+			上海我家百度進口以上精選沉默嘗試學生二十回到奇蹟版主固定商，我的每年是這樣靈活。
+		</div>
+
+	</div>
+
+
+
+	<div data-role="page" id="menu">
+		<div data-role="header">
+			<a href="#" data-theme="b" data-rel="back">back</a>
+			<h4>MENU</h4>
+		</div>
+		<div role="main" class="ui-content">
+
+			<a href="#menu01" data-rel="popup" data-position-to="window">
+				<img src="Image/p00 (1).jpg" width="47%" alt=""></a>
+			<div data-role="popup" id="menu01" data-dismissble="false">
+				<a href="#" data-role="button" data-theme="b" data-icon="delete"  
+				data-iconpos="notext" class="ui-btn-right" data-rel="back"></a>
+				<img src="Image/p00 (1).jpg" alt="">
+			</div>
+
+
+			<a href="#menu02" data-rel="popup" data-position-to="window">
+				<img src="Image/p00 (2).jpg" width="47%" alt=""></a>
+			<div data-role="popup" id="menu02" data-dismissble="false">
+				<a href="#" data-role="button" data-theme="b" data-icon="delete"
+				data-iconpos="notext" class="ui-btn-right" data-rel="back"></a>
+				<img src="Image/p00 (2).jpg" alt="">
+			</div>
+
+			<a href="#menu03" data-rel="popup" data-position-to="window">
+				<img src="Image/p00 (3).jpg" width="45%" alt=""></a>
+			<div data-role="popup" id="menu03" data-dismissble="false">
+				<a href="#" data-role="button" data-theme="b" data-icon="delete"  
+				data-iconpos="notext" class="ui-btn-right" data-rel="back"></a>
+				<img src="Image/p00 (3).jpg" alt="">
+			</div>
+
+
+			<a href="#menu04" data-rel="popup" data-position-to="window">
+				<img src="Image/p00 (4).jpg" width="47%" alt=""></a>
+			<div data-role="popup" id="menu04" data-dismissble="false">
+				<a href="#" data-role="button" data-theme="b" data-icon="delete"
+				data-iconpos="notext" class="ui-btn-right" data-rel="back"></a>
+				<img src="Image/p00 (4).jpg" alt="">
+			</div>
+
+			<a href="#menu05" data-rel="popup" data-position-to="window">
+				<img src="Image/p00 (5).jpg" width="45%" alt=""></a>
+			<div data-role="popup" id="menu05" data-dismissble="false">
+				<a href="#" data-role="button" data-theme="b" data-icon="delete"  
+				data-iconpos="notext" class="ui-btn-right" data-rel="back"></a>
+				<img src="Image/p00 (5).jpg" alt="">
+			</div>
+
+
+			<a href="#menu06" data-rel="popup" data-position-to="window">
+				<img src="Image/p00 (6).jpg" width="47%" alt=""></a>
+			<div data-role="popup" id="menu06" data-dismissble="false">
+				<a href="#" data-role="button" data-theme="b" data-icon="delete"
+				data-iconpos="notext" class="ui-btn-right" data-rel="back"></a>
+				<img src="Image/p00 (6).jpg" alt="">
+			</div>	
+
+
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h4>頁尾</h4>
+		</div>
+
+	</div>
+
+</body>
+</html>

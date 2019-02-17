@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+		var flag_username = false;
+		var flag_password = false;
+		var flag_re_password = false;
+		var flag_email = false;
+		$(function(){
+			$("#reg_btn").bind("click", reg);
+			//確認帳號
+			$("#username").bind("input propertychange", function(){
+				if($("#username").val().length < 5 ){
+					$("#msgname").text("帳號不得小於5個字數");
+					$("#msgname").css("background-color", "red");
+					flag_username = false;
+				}else{
+					$("#msgname").text("");
+					$("#msgname").css("background-color", "white");
+					flag_username = true;
+				}
+			});
+			//確認密碼
+			$("#password").bind("input propertychange", function(){
+				if($("#password").val().length < 8 ){
+					$("#msgpass").text("密碼不得小於8個字數");
+					$("#msgpass").css("background-color", "red");
+					flag_password = false;
+				}else{
+					$("#msgpass").text("");
+					$("#msgpass").css("background-color", "white");
+					flag_password = true;
+				}
+			});
+			// 重複確認密碼
+			$("#re_password").bind("input propertychange", function(){
+				if($("#re_password").val() == $("#password").val()){
+					$("#msgrepass").text("");
+					$("#msgrepass").css("background-color", "white");
+					flag_re_password = true;
+				}else{
+					$("#msgrepass").text("密碼不符");
+					$("#msgrepass").css("background-color", "red");
+					flag_re_password = false;
+				}
+			});
+			//確認Email
+			$("#email").bind("input propertychange", function(){
+				if($("#email").val().length < 10 ){
+					$("#msgemail").text("Email不得小於10個字數");
+					$("#msgemail").css("background-color", "red");
+					flag_email = false;
+				}else{
+					$("#msgemail").text("");
+					$("#msgemail").css("background-color", "white");
+					flag_email = true;
+				}
+			});
+		});
+		function reg(){
+			//判斷輸入欄位是否正確
+			if( flag_username && flag_email && flag_password && flag_re_password){
+				if(confirm("已確認註冊資訊???")){
+					$.ajax({
+						type: "POST",
+						url: "http://192.168.60.150/mobileWEB/register.php",
+						data: {username: $("#username").val(), password: $("#password").val(), email: $("#email").val()},
+						success: show,
+						error: function(){
+							alert("error");
+						}
+					}); //ajax
+				} //if
+
+			}else{
+				//提醒不正確
+				if(!flag_username){
+					alert("帳號不符規定!")
+				}
+				if(!flag_password){
+					alert("密碼不符規定!")
+				}
+				if(!flag_re_password){
+					alert("密碼不一致!")
+				}
+				if(!flag_email){
+					alert("Email不符合規定!")
+				}
+			}
+		}
+		function show(data){
+			if(data){
+				alert("註冊成功!!");
+			}else{
+				alert("註冊失敗!!");
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header" data-position="fixed" id="home" data-theme="b">
+			<h1>Home</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<div data-role="fieldcontain">
+				<label for="username">帳號</label>
+				<input type="text" name="username" id="username">
+			</div>
+			<div id="msgname"></div>
+
+			<div data-role="fieldcontain">
+				<label for="password">密碼</label>
+				<input type="password" name="password" id="password">
+			</div>
+			<div id="msgpass"></div>
+
+			<div data-role="fieldcontain">
+				<label for="re_password">確認密碼</label>
+				<input type="password" name="re_password" id="re_password">
+			</div>
+			<div id="msgrepass"></div>
+
+			<div data-role="fieldcontain">
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email">
+			</div>
+			<div id="msgemail"></div>
+
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<a href="#" data-role="button" data-theme="b">取消</a>		
+				</div>
+				<div class="ui-block-b">
+					<a href="#" data-role="button" data-theme="b" id="reg_btn">確認</a>		
+				</div>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1>footer</h1>
+		</div>
+	</div>
+</body>
+</html>		

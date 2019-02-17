@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<style>
+		.logo{
+			width: 103px;
+			margin-top: 0;
+			margin-bottom: 0;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		.logo01{
+			border-radius: 55px;
+			box-shadow: 5px 5px 5px 3px #aaa;
+		}
+		.pimg{
+			width: 260px;
+			margin-top: 0;
+			margin-bottom: 0;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.pimg_01{
+			box-shadow: 20px 20px 20px 10px #aaa;
+			border-radius: 5px;
+		}
+		.ptext h3{
+			color: #F24747;
+		}
+		.ptext p{
+			color: #C7DA1B;
+		}
+	</style>
+	<script>
+		$(function(){
+			$("#prev").bind("click", showprev);
+			$("#next").bind("click", shownext);
+		});
+
+		var pointer=0;
+		var imgsrc, imgtitle;
+
+		var aryimgsrc = new Array("cake01.jpg", "cake02.jpg", "cake03.jpg", "cake04.jpg", "cake05.jpg", "cake06.jpg");
+		var aryimgtitle = new Array("草莓蛋糕", "巧克力高","蛋糕03", "蛋糕04", "蛋糕05", "蛋糕06");
+
+		function showprev(){
+			pointer --;
+			if(pointer < 0){
+				pointer = 5;
+			}
+			imgsrc = "images/" + aryimgsrc[pointer];
+			imgtitle = aryimgtitle[pointer];
+			$("#showimg").attr("src", imgsrc);
+			$("#showtitle").text(imgtitle);
+		}
+
+		function shownext(){
+			pointer ++;
+			if(pointer > 5){
+				pointer = 0;
+			}
+			imgsrc = "images/" + aryimgsrc[pointer];
+			imgtitle = aryimgtitle[pointer];
+			$("#showimg").attr("src", imgsrc);
+			$("#showtitle").text(imgtitle);	
+		}
+
+	</script>
+</head>
+<body>
+	<!-- home -->
+	<div data-role="page" id="home" >
+		<div role="main" class="ui-content">
+			<div class="logo">
+				<img src="images/log001.png" alt="" class="logo01">
+			</div>
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<a href="#" data-role="button" data-theme="b" data-icon="star">Button 1</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="#" data-role="button" data-theme="b" data-icon="star">Button 2</a>
+				</div>
+			</div>
+			
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" class="ui-btn-active">Home</a></li>
+					<li><a href="#product" data-icon="shop">New Product</a></li>
+					<li><a href="#about" data-icon="info"  data-rel="dialog">About</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- new product -->
+	<div data-role="page" id="product" >
+		<div data-role="header" data-position="fixed" id="home" data-theme="b">
+			<a href="#" data-theme="a" data-icon="arrow-l" data-iconpos="notext" id="prev">Prev</a>
+			<h1>New Product</h1>
+			<a href="#" data-theme="a" data-icon="arrow-r" data-iconpos="notext" id="next">Next</a>
+		</div>
+		<div role="main" class="ui-content">
+			<div class="pimg">
+				<img src="images/cake01.jpg" class="pimg_01" id="showimg" width="100%">
+			</div>
+			<div class="ptext">
+				<h3 id="showtitle">品名: 這就是金幣</h3>
+				<h3>價格: 2000元</h3>
+				<h3>重量: 200克</h3>
+				<p>小遊戲構成這樣性別眼前爸爸幫，點擊數正是開口審核不怕一份，。</p>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home">Home</a></li>
+					<li><a href="#product" data-icon="shop" class="ui-btn-active">New Product</a></li>
+					<li><a href="#about" data-icon="info" data-rel="dialog">About</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- about -->
+	<div data-role="page" id="about">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>page title</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<img src="images/car05.png" width="100%" alt="">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus repudiandae ducimus repellendus commodi maxime ipsum, cum odit, repellat consectetur aliquam optio tempore. Illum at blanditiis, iste cumque cupiditate natus explicabo!</p>
+		</div>
+	</div>	
+</body>
+</html>		

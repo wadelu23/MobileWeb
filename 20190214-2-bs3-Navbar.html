@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 3 NavBar</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 載入fontawesome就可用該網站上的icon直接複製網站代碼貼上 -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    	.mb10{
+    		margin-bottom: 10px;
+    	}
+    	.mr10{
+    		margin-right: 10px;
+    	}
+    </style>
+  </head>
+  <body>
+		<nav class="navbar navbar-inverse">
+			<!-- container-fluid會往外延展，用container會配合縮一點 -->
+		  <div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <!-- 標題與縮圖圖示 -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">雲端技術</a>
+		    </div>
+
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		    	<!-- 左方功能列 -->
+		      <ul class="nav navbar-nav">
+		      	<!-- <i class="fas fa-book mr10 fa-5x放大5倍">fontawesome網站上的icon代碼 -->
+		        <li class="active"><a href="#"><i class="fas fa-book mr10"></i>課程介紹 <span class="sr-only">(current)</span></a></li>
+		        <li><a href="#"><span class="glyphicon glyphicon-bookmark mr10"></span>師資</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt mr10"></span>課程內容 <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">Java</a></li>
+		            <li><a href="#">php</a></li>
+		            <li><a href="#">linux</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">android</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">DB</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+
+				<!-- navbar-right先寫先贏，之後的排在第2個，...右3右2右1 -->
+				<!-- 右方列表縮放按紐 -->
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="#">OOO會員你好</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog mr10"></span>會員中心 <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">資料</a></li>
+		            <li><a href="#">更換密碼</a></li>
+		            <li><a href="#">進階內容</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">登出</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+
+		      	<!-- 搜尋列 -->
+		      <form class="navbar-form navbar-right">
+		        <div class="form-group">
+		          <input type="text" class="form-control" placeholder="輸入關鍵字">
+		        </div>
+		        <button type="submit" class="btn btn-default">搜尋</button>
+		      </form>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container -->
+		</nav>
+
+		<div class="container ">
+			<div class="row">
+				<ol class="breadcrumb">
+					<li><a href="#">首頁</a></li>
+					<li><a href="#">課程介紹</a></li>
+					<li>第一則</li>
+				</ol>
+					<div class="col-sm-3">
+						<div class="thumbnail">
+							<div class="img text-center">
+								<!-- fa-8x放大8倍 fa-spin旋轉 -->
+								<i class="fab fa-app-store fa-8x "></i>
+								<!-- <img src="http://fakeimg.pl/400x300/00CED1/FFF/?text=img+placeholder" class="img-responsive img-rounded center-block"> -->
+							</div>
+							<div class="caption">
+								<h3 class="text-center">標題</h3>
+								<p>發生一定會激烈跟我地區域，眼淚數碼相機。</p>
+								<div class="bbttnn text-center">
+									<a href="#" class="btn btn-danger visible-xs-block visible-sm-inline-block visible-md-block visible-lg-inline-block mb10" ><span class="glyphicon glyphicon-remove mr10"></span>取消</a>
+									<a href="#" class="btn btn-primary visible-xs-block visible-sm-inline-block visible-md-block visible-lg-inline-block" ><span class="glyphicon glyphicon-ok mr10"></span>確認</a> 
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="thumbnail">
+							<div class="img">
+								<img src="http://fakeimg.pl/400x300/00CED1/FFF/?text=img+placeholder" class="img-responsive img-rounded center-block">
+							</div>
+							<div class="caption">
+								<h3 class="text-center">標題</h3>
+								<p>狀況一下子時代監控真，寵物本地各級水果。</p>
+								<div class="bbttnn text-center">
+									<a href="#" class="btn btn-danger visible-xs-block visible-sm-inline-block visible-md-block visible-lg-inline-block mb10" ><span class="glyphicon glyphicon-remove mr10"></span>取消</a>
+									<a href="#" class="btn btn-primary visible-xs-block visible-sm-inline-block visible-md-block visible-lg-inline-block" ><span class="glyphicon glyphicon-ok mr10"></span>確認</a> 
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="thumbnail">
+							<div class="img">
+								<img src="http://fakeimg.pl/400x300/00CED1/FFF/?text=img+placeholder" class="img-responsive img-circle center-block">
+							</div>
+							<div class="caption">
+								<h3 class="text-center">標題</h3>
+								<p>圖片長寬不一，效果會是橢圓形</p>
+								<div class="bbttnn text-center">
+									<a href="#" class="btn btn-danger visible-xs-block visible-sm-inline-block visible-md-block visible-lg-inline-block mb10" ><span class="glyphicon glyphicon-remove mr10"></span>取消</a>
+									<a href="#" class="btn btn-primary visible-xs-block visible-sm-inline-block visible-md-block visible-lg-inline-block" ><span class="glyphicon glyphicon-ok mr10"></span>確認</a> 
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="thumbnail">
+							<div class="img">
+								<img src="http://fakeimg.pl/300x300/00CED1/FFF/?text=img+placeholder" class="img-responsive img-circle center-block">
+							</div>
+							<div class="caption">
+								<h3 class="text-center">標題</h3>
+								<p>設定img-circle時，圖片要正方形才會是圓形</p>
+								<div class="bbttnn text-center">
+									<a href="#" class="btn btn-danger visible-xs-block visible-sm-inline-block visible-md-block visible-lg-inline-block mb10" ><span class="glyphicon glyphicon-remove mr10"></span>取消</a>
+									<a href="#" class="btn btn-primary visible-xs-block visible-sm-inline-block visible-md-block visible-lg-inline-block" ><span class="glyphicon glyphicon-ok mr10"></span>確認</a> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+		</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>

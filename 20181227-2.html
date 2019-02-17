@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1" 	>
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+	<script>
+		$(function(){
+			$("#name").bind('input propertychange',nameintput);
+			$("#user").bind('input propertychange',userintput);
+			$("#pass").bind('input propertychange',passintput);
+			$("#ID").bind('input propertychange',IDintput);
+			$("#btnOK").bind('click',output);
+			$("#btnCA").bind('click',cancel);
+		});
+		var name_flag=false,user_flag=false,pass_flag=false,ID_flag=false;
+		function nameintput(){
+			if ($("#name").val().length<2) {
+				$(".name").css("background-color","#F98E96");
+				$("#namemsg").text("輸入錯誤");
+				name_flag=false;
+			}else if ($("#name").val().length>2) {
+				$(".name").css("background-color","white");
+				$("#namemsg").text("");
+				name_flag=true;
+			}
+		}
+		function userintput(){
+			if ($("#user").val().length<5) {
+				$(".user").css("background-color","#F98E96");
+				$("#usermsg").text("要大於5");
+				user_flag=false;
+			}else if ($("#user").val().length>5) {
+				$(".user").css("background-color","white");
+				$("#usermsg").text("");
+				user_flag=true;
+			}
+		}
+		function passintput(){
+			if ($("#pass").val().length<8) {
+				$(".pass").css("background-color","#F98E96");
+				$("#passmsg").text("要大於8");
+				pass_flag=false
+			}else if ($("#pass").val().length>8) {
+				$(".pass").css("background-color","white");
+				$("#passmsg").text("");
+				pass_flag=true;
+			}
+		}
+		function IDintput(){
+			if ($("#ID").val().length==10) {
+				$(".ID").css("background-color","white");
+				$("#IDmsg").text("");
+				ID_flag=true;
+			}else {
+				$(".ID").css("background-color","#F98E96");
+				$("#IDmsg").text("格式錯誤");
+				ID_flag=false;
+			}
+		}
+		function cancel(){
+			$("#result").text("");
+		}
+		function output(){
+			$("#result").text("");
+			if (name_flag&&user_flag&&pass_flag&&ID_flag) {
+				result = '<p>姓名:'+$("#name").val()+'</p>';
+				result += '<p>帳號:'+$("#user").val()+'</p>';
+				result += '<p>密碼:'+$("#pass").val()+'</p>';
+				result += '<p>生日:'+$("#date").val()+'</p>';
+				result += '<p>性別:'+$("#sex").val()+'</p>';
+				result += '<p>身高:'+$("#height").val()+'</p>';
+				result += '<p>體重:'+$("#weight").val()+'</p>';
+				result += '<p>身分證:'+$("#ID").val()+'</p>';
+				result += '<p>居住區域:'+$("#locat").val()+'</p>';
+				result += '<p>血型:'+$("input[name='blood']:checked").val()+'</p>';
+				result += '<p>最高學歷:'+$("input[name='edu']:checked").val()+'</p>';
+				var hob = [];
+				$.each($("input[name='hobckb']:checked"),
+					function(){
+						hob.push($(this).val());
+					});
+				result += '<p>興趣:'+hob.join(",")+'</p>';
+				$("#result").html(result);
+
+			}else{
+				$("#result").text("");//速度一定最快
+				alert("輸入資料不完全");
+			}
+
+			
+		}
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div  data-role="header" data-position="fixed" data-theme="b">
+			<h1>註冊表單</h1>
+			<!-- <a href="#home" data-role="button" data-icon="home" data-theme="a" >home</a>
+			<a href="#" data-theme="a" data-rel="back" data-icon="back" class="ui-btn-right">back</a> -->
+		</div>
+		
+		<div role="main" class="ui-content">
+			<!-- 姓名 -->
+			<div data-role="filecontain">
+				<label for="name">姓名</label>
+				<input type="text" name="name" id="name" class="name">
+			</div>
+			<div id="namemsg"></div>
+			<!-- 帳號 -->
+			<div data-role="filecontain">
+				<label for="user">帳號</label>
+				<input type="text" name="user" id="user" class="user">
+			</div>
+			<div id="usermsg"></div>
+			<!-- 密碼 -->
+			<div data-role="filecontain">
+				<label for="pass">密碼</label>
+				<input type="password" name="pass" id="pass" class="pass">
+			</div>
+			<div id="passmsg"></div>
+			<!-- 生日 -->
+			<div data-role="filecontain">
+				<label for="date">生日</label>
+				<input type="date" name="date" id="date">
+			</div>
+			<!-- 性別 -->
+			<div data-role="filecontain">
+				<label for="sex">性別</label>
+				<select name="sex" id="sex" data-role="slider">
+					<option value="男">男生</option>
+					<option value="女">女生</option>
+				</select>
+			</div>
+			<!-- 身高 -->
+			<div data-role="filecontain">
+				<label for="height">身高(cm)</label>
+				<input type="range" name="height" id="height" value="170" min="120" max="200" step="1">
+			</div>
+			<!-- 體重 -->
+			<div data-role="filecontain">
+				<label for="weight">體重(kg)</label>
+				<input type="range" name="weight" id="weight" value="60" min="40" max="130" step="1">
+			</div>
+			<!-- 身分證字號 -->
+			<div data-role="filecontain">
+				<label for="ID">身分證字號</label>
+				<input type="text" name="ID" id="ID" class="ID">
+			</div>
+			<div id="IDmsg"></div>
+			<!-- 居住區 -->
+			<div data-role="filecontain">
+				<label for="locat">居住區域</label>
+				<select name="locat" id="locat">
+					<option value="北部">北部</option>
+					<option value="中部">中部</option>
+					<option value="南部">南部</option>
+					<option value="東部">東部</option>
+				</select>
+			</div>
+			<!-- 血型 -->
+			<div data-role="filecontain">
+				<fieldset data-role="controlgroup" >
+					<legend>血型</legend>
+					<input type="radio" name="blood" id="radio1" class="custom" value="A"/>
+					<label for="radio1">A</label>
+					<input type="radio" name="blood" id="radio2" class="custom" value="B"/>
+					<label for="radio2">B</label>
+					<input type="radio" name="blood" id="radio3" class="custom" value="O"/>
+					<label for="radio3">O</label>
+					<input type="radio" name="blood" id="radio4" class="custom" value="AB"/>
+					<label for="radio4">AB</label>
+				</fieldset>
+			</div>
+			<!-- 學歷 -->
+			<div data-role="filecontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>最高學歷>單選</legend>
+					<input type="radio" name="edu" id="edu1" class="custom" value="博士"/>
+					<label for="edu1">博士</label>
+					<input type="radio" name="edu" id="edu2" class="custom" value="大學"/>
+					<label for="edu2">大學</label>
+					<input type="radio" name="edu" id="edu3" class="custom" value="高中職"/>
+					<label for="edu3">高中職</label>
+					<input type="radio" name="edu" id="edu4" class="custom" value="其他"/>
+					<label for="edu4">其他</label>
+				</fieldset>
+			</div>
+			<!-- 休閒 -->
+			<div data-role="filecontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>休閒娛樂>複選</legend>
+					<input type="checkbox" name="hobckb" id="checkbox1" class="custom" value="閱讀"/>
+					<label for="checkbox1">閱讀</label>
+					<input type="checkbox" name="hobckb" id="checkbox2" class="custom" value="電影"/>
+					<label for="checkbox2">電影</label>
+					<input type="checkbox" name="hobckb" id="checkbox3" class="custom" value="爬山"/>
+					<label for="checkbox3">爬山</label>
+					<input type="checkbox" name="hobckb" id="checkbox4" class="custom" value="運動"/>
+					<label for="checkbox4">運動</label>
+					<input type="checkbox" name="hobckb" id="checkbox5" class="custom" value="其他"/>
+					<label for="checkbox5">其他</label>
+				</fieldset>
+			</div>
+
+			<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<a href="#" data-role="button" data-theme="b" id="btnCA">取消</a>
+					</div>
+					<div class="ui-block-b">
+						<a href="#" data-role="button" data-theme="b" id="btnOK">確認</a>
+					</div>
+			</div>	
+			
+			<div id="result">
+				
+			</div>
+			
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1>頁尾</h1>
+			<!-- <div data-role="navbar">
+				<ul>
+					<li><a href="#">9</a></li>
+					<li><a href="#">9</a></li>
+					<li><a href="#">9</a></li>
+				</ul>
+			</div> -->	
+		</div>
+		
+	</div>
+	
+</body>
+</html>
+

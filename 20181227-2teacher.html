@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+		var username_flag = false,  user_flag = false, pwd_flag = false, uid_flag = false; //用falg來記錄該欄位是否合乎規定
+		var myfavorite = [];
+		$(function(){
+			//姓名即時判斷字數 >2
+			$("#username").bind("input propertychange", function(){
+				if( $("#username").val().length < 2){
+					$("#msg_name").text("不得少於2個字!!");
+					$("#msg_name").css("color", "white");
+					$("#msg_name").css("background-color", "#CE4D4D");
+					username_flag = false;
+				}else if( $("#username").val().length > 2){
+					$("#msg_name").text("");
+					$("#msg_name").css("background-color", "white");
+					username_flag = true;
+				}
+			});
+
+			//帳號即時判斷字數 > 5
+			$("#user").bind("input propertychange", function(){
+				if( $("#user").val().length < 5){
+					$("#msg_user").text("不得少於5個字!!");
+					$("#msg_user").css("color", "white");
+					$("#msg_user").css("background-color", "#CE4D4D");
+					user_flag = false;
+				}else if( $("#user").val().length > 5){
+					$("#msg_user").text("");
+					$("#msg_user").css("background-color", "white");
+					user_flag = true;
+				}
+			});
+			//密碼即時判斷字數 > 8
+			$("#pwd").bind("input propertychange", function(){
+				if( $("#pwd").val().length < 8){
+					$("#msg_pwd").text("不得少於8個字!!");
+					$("#msg_pwd").css("color", "white");
+					$("#msg_pwd").css("background-color", "#CE4D4D");
+					pwd_flag = false;
+				}else if( $("#pwd").val().length > 8){
+					$("#msg_pwd").text("");
+					$("#msg_pwd").css("background-color", "white");
+					pwd_flag = true;
+				}
+			});
+			//身分證字號即時判斷字數 = 10
+			$("#uid").bind("input propertychange", function(){
+				if( $("#uid").val().length != 10){
+					$("#msg_uid").text("請更正身分字號為10個字元!!");
+					$("#msg_uid").css("color", "white");
+					$("#msg_uid").css("background-color", "#CE4D4D");
+					uid_flag = false;
+				}else if( $("#uid").val().length == 10){
+					$("#msg_uid").text("");
+					$("#msg_uid").css("background-color", "white");
+					uid_flag = true;
+				}
+			});
+			//監聽按鈕ok_btn
+			$("#ok_btn").bind("click", show_message);
+		});
+
+		function show_message(){
+			$("#show_all_message").text("");//清空
+			if(username_flag && user_flag && pwd_flag && uid_flag){
+				msg = '<p>姓名:'+ $("#username").val() +'</p>';
+				msg = msg + '<p>帳號:'+ $("#user").val() +'</p>';
+				msg = msg + '<p>密碼:'+ $("#pwd").val() +'</p>';
+				msg = msg + '<p>生日:'+ $("#bday").val() +'</p>';
+				msg = msg + '<p>性別:'+ $("#sex").val() +'</p>';
+				msg = msg + '<p>身高:'+ $("#height").val() +'</p>';
+				msg = msg + '<p>體重:'+ $("#weight").val() +'</p>';
+				msg = msg + '<p>身分證字號:'+ $("#uid").val() +'</p>';
+				msg = msg + '<p>居住地區:'+ $("#addr").val() +'</p>';
+				msg = msg + '<p>血型:'+ $("input[name='option']:checked").val() +'</p>';
+				msg = msg + '<p>最高學歷:'+ $("input[name='edu_option']:checked").val() +'</p>';
+
+
+				$.each($("input[name='sport_option']:checked"),function(){
+						myfavorite.push($(this).val());
+				});
+
+				msg = msg + '<p>興趣:'+ myfavorite.join("-") +'</p>';
+
+
+				$("#show_all_message").html(msg);
+
+			}else{
+				alert("輸入欄位請符合規定, 請依照紅色區塊提示輸入正確訊息!!");
+			}
+		}
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header" data-position="fixed" id="home" data-theme="b">
+			<h1>Home</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<div data-role="fieldcontain">
+				<label for="username">姓名</label>
+				<input type="text" name="username" id="username">
+			</div>
+			<div id="msg_name"></div>
+			<div data-role="fieldcontain">
+				<label for="user">帳號</label>
+				<input type="text" name="user" id="user">
+			</div>
+			<div id="msg_user"></div>
+			<div data-role="fieldcontain">
+				<label for="pwd">密碼</label>
+				<input type="password" name="pwd" id="pwd">
+			</div>
+			<div id="msg_pwd"></div>
+			<div data-role="fieldcontain">
+				<label for="bday">生日</label>
+				<input type="date" name="bday" id="bday">
+			</div>
+			<div data-role="fieldcontain">
+				<label for="sex">性別</label>
+				<select name="sex" id="sex" data-role="slider">
+					<option value="男">男生</option>
+					<option value="女">女生</option>
+				</select>	
+			</div>
+			<div data-role="fieldcontain">
+				<label for="height">身高(cm)</label>
+				<input type="range" name="height" id="height" value="160" min="80" max="200" step="1">
+			</div>	
+			<div data-role="fieldcontain">
+					<label for="weight">體重(kg)</label>
+					<input type="range" name="weight" id="weight" value="60" min="40" max="120" step="1">
+			</div>
+			<div data-role="fieldcontain">
+				<label for="uid">身分字號</label>
+				<input type="text" name="uid" id="uid">
+			</div>
+			<div id="msg_uid"></div>
+			<div data-role="fieldcontain">
+				<label for="addr">居住地區</label>
+				<select name="addr" id="addr">
+					<option value="北部">北部</option>
+					<option value="中部">中部</option>
+					<option value="南部">南部</option>
+					<option value="東部">東部</option>
+				</select>	
+			</div>
+			<div data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>血型</legend>
+					<input type="radio" name="option" id="roption1" value="A">
+					<label for="roption1">A</label>
+					<input type="radio" name="option" id="roption2" value="B">
+					<label for="roption2">B</label>
+					<input type="radio" name="option" id="roption3" value="O">
+					<label for="roption3">O</label>
+					<input type="radio" name="option" id="roption4" value="AB">
+					<label for="roption4">AB</label>
+				</fieldset>
+			</div>	
+			<div data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>最高學歷</legend>
+					<input type="radio" name="edu_option" id="edu_roption1" value="碩士">
+					<label for="edu_roption1">碩士</label>
+					<input type="radio" name="edu_option" id="edu_roption2" value="大學">
+					<label for="edu_roption2">大學</label>
+					<input type="radio" name="edu_option" id="edu_roption3" value="專科">
+					<label for="edu_roption3">專科</label>
+					<input type="radio" name="edu_option" id="edu_roption4" value="高中職">
+					<label for="edu_roption4">高中職</label>
+					<input type="radio" name="edu_option" id="edu_roption5" value="其他">
+					<label for="edu_roption5">其他</label>
+				</fieldset>
+			</div>	
+			<div data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>休閒娛樂</legend>
+					<input type="checkbox" name="sport_option" id="sport_option1" value="閱讀">
+					<label for="sport_option1">閱讀</label>
+					<input type="checkbox" name="sport_option" id="sport_option2" value="看電影">
+					<label for="sport_option2">看電影</label>
+					<input type="checkbox" name="sport_option" id="sport_option3" value="爬山">
+					<label for="sport_option3">爬山</label>
+					<input type="checkbox" name="sport_option" id="sport_option4" value="運動">
+					<label for="sport_option4">運動</label>
+					<input type="checkbox" name="sport_option" id="sport_option5" value="其他">
+					<label for="sport_option5">其他</label>
+				</fieldset>
+			</div>
+
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<a href="#" data-role="button" data-theme="b">取消</a>		
+				</div>
+				<div class="ui-block-b">
+					<a href="#" data-role="button" data-theme="b" id="ok_btn">確認</a>		
+				</div>
+			</div>
+			<div id="show_all_message"></div>
+
+
+
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1>footer</h1>
+		</div>
+	</div>
+</body>
+</html>		
