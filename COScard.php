@@ -45,45 +45,33 @@
 		</div>
 		
 		<div role="main" class="ui-content">
-			<div id="cardlogo"><img src="http://fakeimg.pl/350x200/00CED1/FFF/?text=LOGO" width="100%" id="logoimg"></div>
+			<div id="cardlogo"><img src="image/p01.jpg" width="100%" id="logoimg"></div>
 			<h1 class="H1">目前點數</h1>
 			<h1 class="H1">點數</h1>
 			<!-- 優惠項目區 -->
 			<h1 class="H1">目前優惠</h1>
 			<div class="ui-grid-a">
 				<div class="ui-block-a" >
-					<div id="saleimgpos"><img src="http://fakeimg.pl/150x100/00CED1/FFF/?text=img+placeholder" width="100%" id="saleimg"></div>
+					<div id="saleimgpos"><img src="image/p02.jpg" width="100%" id="saleimg"></div>
 					
-					<h1 class="H1">100</h1>
+					<h1 class="H1">150</h1>
 				</div>
 				<div class="ui-block-b" >
-					<div id="saleimgpos"><img src="http://fakeimg.pl/150x100/00CED1/FFF/?text=img+placeholder" width="100%" id="saleimg"></div>
+					<div id="saleimgpos"><img src="image/p03.jpg" width="100%" id="saleimg"></div>
 					
-					<h1 class="H1">100</h1>
+					<h1 class="H1">150</h1>
 				</div>
 			</div>
 			<div class="ui-grid-a">
 				<div class="ui-block-a" >
-					<div id="saleimgpos"><img src="http://fakeimg.pl/150x100/00CED1/FFF/?text=img+placeholder" width="100%" id="saleimg"></div>
+					<div id="saleimgpos"><img src="image/p04.jpg" width="100%" id="saleimg"></div>
 					
 					<h1 class="H1">200</h1>
 				</div>
 				<div class="ui-block-b" >
-					<div id="saleimgpos"><img src="http://fakeimg.pl/150x100/00CED1/FFF/?text=img+placeholder" width="100%" id="saleimg"></div>
+					<div id="saleimgpos"><img src="image/p05.jpg" width="100%" id="saleimg"></div>
 					
 					<h1 class="H1">200</h1>
-				</div>
-			</div>
-			<div class="ui-grid-a">
-				<div class="ui-block-a" >
-					<div id="saleimgpos"><img src="http://fakeimg.pl/150x100/00CED1/FFF/?text=img+placeholder" width="100%" id="saleimg"></div>
-					
-					<h1 class="H1">300</h1>
-				</div>
-				<div class="ui-block-b" >
-					<div id="saleimgpos"><img src="http://fakeimg.pl/150x100/00CED1/FFF/?text=img+placeholder" width="100%" id="saleimg"></div>
-					
-					<h1 class="H1">300</h1>
 				</div>
 			</div>
 
